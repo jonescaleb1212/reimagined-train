@@ -43,7 +43,7 @@ def draw_bird(x, y,vel):
     angle = -vel * 3  # tweak multiplier for effect
     rotated = pygame.transform.rotate(BIRD_IMG, angle)
     rect = rotated.get_rect(center=(x + BIRD_SIZE/2, y + BIRD_SIZE/2))
-    screen.blit(BIRD_IMG, (x, y))
+    screen.blit(rotated, rect.topleft)
 
 def create_pipe():
     gap_y = random.randint(100, HEIGHT - 200)
