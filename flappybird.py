@@ -22,7 +22,7 @@ bird_x = WIDTH // 4
 bird_y = HEIGHT // 2
 bird_vel = 0
 GRAVITY = 0.5
-FLAP_STRENGTH = -10
+FLAP_STRENGTH = -7.5
 
 # pipes
 PIPE_WIDTH = 60
@@ -33,6 +33,7 @@ pygame.time.set_timer(SPAWNPIPE, 1200)
 
 score = 0
 game_active = True
+scored_pipes = set()    # track which pipes we’ve counted
 
 def draw_bird(x, y):
     pygame.draw.rect(screen, (255, 255, 0), (x, y, BIRD_SIZE, BIRD_SIZE))
@@ -82,6 +83,7 @@ while True:
             bird_y = HEIGHT // 2
             bird_vel = 0
             score = 0
+            scored_pipes.clear()
         if event.type == SPAWNPIPE and game_active:
             pipe_list.extend(create_pipe())
 
@@ -101,10 +103,13 @@ while True:
         # collision
         check_collision(pipe_list)
 
-        # score
+        # scoring: detect the exact crossing event
+        PIPE_SPEED = 4   # should match your pipe movement speed
         for p in pipe_list:
-            if p.centerx == bird_x:
-                score += 0.5  # each pipe pair counts 1
+            if p.y == 0:
+                # if in the last frame it was still to the right but now it's left of the bird:
+                if (p.centerx < bird_x) and (p.centerx + PIPE_SPEED >= bird_x):
+                    score += 1
         display_score(screen, int(score))
     else:
         over_surf = font.render("Game Over", True, WHITE)
