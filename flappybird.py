@@ -24,6 +24,10 @@ bird_vel = 0
 GRAVITY = 0.5
 FLAP_STRENGTH = -7.5
 
+# bird image
+BIRD_IMG = pygame.image.load('Jessesun.png').convert_alpha()
+BIRD_IMG = pygame.transform.scale(BIRD_IMG, (BIRD_SIZE, BIRD_SIZE))
+
 # pipes
 PIPE_WIDTH = 60
 PIPE_GAP = 150
@@ -35,8 +39,11 @@ score = 0
 game_active = True
 scored_pipes = set()    # track which pipes we’ve counted
 
-def draw_bird(x, y):
-    pygame.draw.rect(screen, (255, 255, 0), (x, y, BIRD_SIZE, BIRD_SIZE))
+def draw_bird(x, y,vel):
+    angle = -vel * 3  # tweak multiplier for effect
+    rotated = pygame.transform.rotate(BIRD_IMG, angle)
+    rect = rotated.get_rect(center=(x + BIRD_SIZE/2, y + BIRD_SIZE/2))
+    screen.blit(BIRD_IMG, (x, y))
 
 def create_pipe():
     gap_y = random.randint(100, HEIGHT - 200)
@@ -94,7 +101,7 @@ while True:
         # bird
         bird_vel += GRAVITY
         bird_y += bird_vel
-        draw_bird(bird_x, bird_y)
+        draw_bird(bird_x, bird_y,bird_vel)
 
         # pipes
         pipe_list = move_pipes(pipe_list)
