@@ -119,7 +119,7 @@ while True:
                     score += 1
         display_score(screen, int(score))
     else:
-        over_surf = font.render("Game Over", True, WHITE)
+        over_surf = font.render("Game Over! Score: " + str(score), True, WHITE)
         scr_x = WIDTH//2 - over_surf.get_width()//2
         scr_y = HEIGHT//2 - over_surf.get_height()//2
         screen.blit(over_surf, (scr_x, scr_y))
