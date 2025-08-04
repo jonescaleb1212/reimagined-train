@@ -1,0 +1,17 @@
+C:\Users\GLab\Downloads\KinectMouseController_NoNear\KinectMouseController_NoNear\bin\Debug\KinectMouseController_NoNear.exe.config
+C:\Users\GLab\Downloads\KinectMouseController_NoNear\KinectMouseController_NoNear\bin\Debug\KinectMouseController_NoNear.exe
+C:\Users\GLab\Downloads\KinectMouseController_NoNear\KinectMouseController_NoNear\bin\Debug\KinectMouseController_NoNear.pdb
+C:\Users\GLab\Downloads\KinectMouseController_NoNear\KinectMouseController_NoNear\bin\Debug\Microsoft.Kinect.dll
+C:\Users\GLab\Downloads\KinectMouseController_NoNear\KinectMouseController_NoNear\bin\Debug\Microsoft.Kinect.Toolkit.dll
+C:\Users\GLab\Downloads\KinectMouseController_NoNear\KinectMouseController_NoNear\bin\Debug\Microsoft.Kinect.Toolkit.Interaction.dll
+C:\Users\GLab\Downloads\KinectMouseController_NoNear\KinectMouseController_NoNear\bin\Debug\Microsoft.Kinect.xml
+C:\Users\GLab\Downloads\KinectMouseController_NoNear\KinectMouseController_NoNear\obj\x86\Debug\KinectMouseController_NoNear.csproj.AssemblyReference.cache
+C:\Users\GLab\Downloads\KinectMouseController_NoNear\KinectMouseController_NoNear\obj\x86\Debug\MainWindow.baml
+C:\Users\GLab\Downloads\KinectMouseController_NoNear\KinectMouseController_NoNear\obj\x86\Debug\MainWindow.g.cs
+C:\Users\GLab\Downloads\KinectMouseController_NoNear\KinectMouseController_NoNear\obj\x86\Debug\App.g.cs
+C:\Users\GLab\Downloads\KinectMouseController_NoNear\KinectMouseController_NoNear\obj\x86\Debug\KinectMouseController_NoNear_MarkupCompile.cache
+C:\Users\GLab\Downloads\KinectMouseController_NoNear\KinectMouseController_NoNear\obj\x86\Debug\KinectMouseController_NoNear.g.resources
+C:\Users\GLab\Downloads\KinectMouseController_NoNear\KinectMouseController_NoNear\obj\x86\Debug\KinectMouseController_NoNear.csproj.CoreCompileInputs.cache
+C:\Users\GLab\Downloads\KinectMouseController_NoNear\KinectMouseController_NoNear\obj\x86\Debug\KinectMo.3DA2B309.Up2Date
+C:\Users\GLab\Downloads\KinectMouseController_NoNear\KinectMouseController_NoNear\obj\x86\Debug\KinectMouseController_NoNear.exe
+C:\Users\GLab\Downloads\KinectMouseController_NoNear\KinectMouseController_NoNear\obj\x86\Debug\KinectMouseController_NoNear.pdb

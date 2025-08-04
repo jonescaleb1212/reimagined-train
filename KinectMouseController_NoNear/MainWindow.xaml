@@ -1,0 +1,21 @@
+<Window x:Class="KinectMouseController_NoNear.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Kinect Mouse Controller (No Near Mode)" Width="1000" Height="700"
+        Loaded="Window_Loaded" Closing="Window_Closing" KeyDown="Window_KeyDown">
+    <Grid>
+        <Image x:Name="ColorView" Stretch="UniformToFill"/>
+        <Canvas x:Name="Overlay" Background="Transparent" IsHitTestVisible="False"/>
+        <DockPanel VerticalAlignment="Top" LastChildFill="False" Margin="8">
+            <Border Background="#AA000000" CornerRadius="6" Padding="8">
+                <StackPanel Orientation="Horizontal" VerticalAlignment="Center" >
+                    <TextBlock x:Name="StatusText" Foreground="White" Margin="4,0"/>
+                    <TextBlock Text=" | " Foreground="Gray" Margin="4,0"/>
+                    <TextBlock Text="Mode: Mouse (open hand) | Scroll (grip/fist)" Foreground="White" Margin="4,0"/>
+                    <TextBlock Text=" | " Foreground="Gray" Margin="4,0"/>
+                    <TextBlock Text="F9: Toggle Control" Foreground="LightGray" Margin="4,0"/>
+                </StackPanel>
+            </Border>
+        </DockPanel>
+    </Grid>
+</Window>

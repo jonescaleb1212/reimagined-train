@@ -111,7 +111,7 @@ while True:
         check_collision(pipe_list)
 
         # scoring: detect the exact crossing event
-        PIPE_SPEED = 4   # should match your pipe movement speed
+        PIPE_SPEED = 8   # should match your pipe movement speed
         for p in pipe_list:
             if p.y == 0:
                 # if in the last frame it was still to the right but now it's left of the bird:
