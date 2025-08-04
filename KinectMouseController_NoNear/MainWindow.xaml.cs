@@ -11,6 +11,7 @@ namespace KinectMouseController_NoNear
     public partial class MainWindow : Window
     {
         private KinectMouseService _svc = new KinectMouseService();
+        private VoiceCommandService _voice;
         private WriteableBitmap _colorBitmap;
         private byte[] _colorPixels;
         private bool _controlEnabled = true;
@@ -25,12 +26,17 @@ namespace KinectMouseController_NoNear
             _svc.ColorFrameArrived += OnColorFrame;
             _svc.HandDataUpdated += OnHandDataUpdated;
             _svc.Start();
+
+            _voice = new VoiceCommandService();
+            _voice.Start();
+
             SetupCursorVisual();
         }
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
             _svc.Dispose();
+            _voice?.Dispose();
         }
 
         private void Window_KeyDown(object sender, KeyEventArgs e)
