@@ -17,6 +17,7 @@ namespace KinectMouseController_NoNear
         private bool _controlEnabled = true;
         private Ellipse _cursor;
         private double _cursorRadius = 12;
+        private bool _isMouseDown;
 
         public MainWindow() { InitializeComponent(); }
 
@@ -80,20 +81,31 @@ namespace KinectMouseController_NoNear
                 _cursor.Fill = e.IsGripped ? Brushes.OrangeRed : Brushes.Cyan;
 
                 if (!_controlEnabled) return;
-                if (!e.IsTracked) return;
 
-                if (!e.IsGripped)
+                if (!e.IsTracked)
                 {
-                    InputInjector.MoveMouseToNormalized(e.X, e.Y);
+                    if (_isMouseDown)
+                    {
+                        InputInjector.MouseLeftUp();
+                        _isMouseDown = false;
+                    }
+                    return;
                 }
-                else
+
+                InputInjector.MoveMouseToNormalized(e.X, e.Y);
+
+                if (e.IsGripped)
                 {
-                    const double dead = 0.005;
-                    const double gain = 8000;
-                    int v = Math.Abs(e.DeltaY) < dead ? 0 : (int)Math.Round(-e.DeltaY * gain);
-                    int hdelta = Math.Abs(e.DeltaX) < dead ? 0 : (int)Math.Round(e.DeltaX * gain);
-                    if (v != 0) InputInjector.MouseVerticalWheel(v);
-                    if (hdelta != 0) InputInjector.MouseHorizontalWheel(hdelta);
+                    if (!_isMouseDown)
+                    {
+                        InputInjector.MouseLeftDown();
+                        _isMouseDown = true;
+                    }
+                }
+                else if (_isMouseDown)
+                {
+                    InputInjector.MouseLeftUp();
+                    _isMouseDown = false;
                 }
             });
         }

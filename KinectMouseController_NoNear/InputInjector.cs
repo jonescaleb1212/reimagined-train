@@ -33,6 +33,8 @@ namespace KinectMouseController_NoNear
         const uint INPUT_MOUSE = 0;
         const uint MOUSEEVENTF_MOVE = 0x0001;
         const uint MOUSEEVENTF_ABSOLUTE = 0x8000;
+        const uint MOUSEEVENTF_LEFTDOWN = 0x0002;
+        const uint MOUSEEVENTF_LEFTUP = 0x0004;
         const uint MOUSEEVENTF_WHEEL = 0x0800;
         const uint MOUSEEVENTF_HWHEEL = 0x01000;
 
@@ -92,6 +94,38 @@ namespace KinectMouseController_NoNear
                     {
                         mouseData = (uint)delta,
                         dwFlags = MOUSEEVENTF_HWHEEL
+                    }
+                }
+            };
+            SendInput(1, new[] { input }, Marshal.SizeOf(typeof(INPUT)));
+        }
+
+        public static void MouseLeftDown()
+        {
+            var input = new INPUT
+            {
+                type = INPUT_MOUSE,
+                mkhi = new MOUSEKEYBDHARDWAREINPUT
+                {
+                    mi = new MOUSEINPUT
+                    {
+                        dwFlags = MOUSEEVENTF_LEFTDOWN
+                    }
+                }
+            };
+            SendInput(1, new[] { input }, Marshal.SizeOf(typeof(INPUT)));
+        }
+
+        public static void MouseLeftUp()
+        {
+            var input = new INPUT
+            {
+                type = INPUT_MOUSE,
+                mkhi = new MOUSEKEYBDHARDWAREINPUT
+                {
+                    mi = new MOUSEINPUT
+                    {
+                        dwFlags = MOUSEEVENTF_LEFTUP
                     }
                 }
             };
