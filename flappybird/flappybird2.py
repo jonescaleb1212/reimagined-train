@@ -31,7 +31,7 @@ IMMUNE_DURATION = 2000   # milliseconds
 immune_start_time = 0
 
 # bird image
-BIRD_IMG = pygame.image.load('Jessesun.png').convert_alpha()
+BIRD_IMG = pygame.image.load('bird.png').convert_alpha()
 BIRD_IMG = pygame.transform.scale(BIRD_IMG, (BIRD_SIZE, BIRD_SIZE))
 
 # pipes
